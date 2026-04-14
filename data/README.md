@@ -12,5 +12,7 @@ These species are:
 9. Erebia cassioides
 10. Tyto alba
 
+For all species, but _Bison bonasus_, we selected 10 individuals with the highest read count. Selected individuals belong to the same BioProject and were produced using the same instrument model, instrument platform, and library strategy. 
+
 For Capra ibex we have both RAD-Seq and WGS. Maybe we should keep only the WGS?
 Tyto alba is missing because this information will be provided by Tristan
