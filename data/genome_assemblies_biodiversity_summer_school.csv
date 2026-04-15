@@ -1,0 +1,11 @@
+scientific_name,GenBank accession,Assembly level,NCBI ,Is assembly of target species
+Capra ibex,GCA_054642885.1,Chromosome,https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_054642885.1/,Yes
+Anodonta anatina,GCA_980915975.2,Scaffold,https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_980915975.2/,"No, sister species"
+Anodonta cygnea,GCA_980915975.2,Scaffold,https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_980915975.2/,Yes
+Anodonta exulcerata,GCA_980915975.2,Scaffold,https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_980915975.2/,"No, sister species"
+Gasterosteus aculeatus,GCA_964276395.1,Chromosome,https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_964276395.1/,Yes
+Bison bonasus,GCA_963879515.1,Scaffold,https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_963879515.1/,Yes
+Zymoseptoria tritici,GCA_000219625.1,Chromosome,https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000219625.1/,Yes
+Erebia cassioides,GCA_976986335.1,Chromosome,https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_976986335.1/,Yes
+Bos taurus,GCA_002263795.4,Chromosome,https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002263795.3/,Yes
+Tyto alba,GCA_018691265.1,Scaffold,https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_018691265.1/,Yes
