@@ -15,4 +15,6 @@ These species are:
 For all species, but _Bison bonasus_, we selected 10 individuals with the highest read count. Selected individuals belong to the same BioProject and were produced using the same instrument model, instrument platform, and library strategy. 
 
 For Capra ibex we have both RAD-Seq and WGS. Maybe we should keep only the WGS?
-Tyto alba is missing because this information will be provided by Tristan
+Tyto alba is missing because this information will be provided by Tristan.
+
+Regarding the genome assemblies: most species have a chromosome-level assembly, except: Tyto alba (maybe Tristan could share the T2T assembly they are working on?), Bison bonasus (well, this is a chromosome-level assembly, it's just that ENA considers it scaffold because scaffolding was done using the Bos taurus assembly), Anodonta cygnea (Alex is working on this, but I don't think she will have a chromosome-level assembly before June). 
