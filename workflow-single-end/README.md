@@ -14,7 +14,7 @@ This pipeline is based on Snakemake and its scope is to estimate population geno
 The user must modify the config.yaml file to provide all necessary inputs for the pipeline. These inputs are:
 - Reference genome in FASTA format. You do not need to index it, because the Snakemake pipeline will do it for you.
 - Input TSV file that contains the following information:
-    ANIMAL ID: sample name (this could also be the run accession obtained from ENA for that sample)
+    ANIMAL ID: sample name (this could also be BioSample obtained from ENA for that sample)
     R1 READS: absolute path of read 1 (R1)
     R2 READS: absolute path of read 2 (R2). If your dataset is made of single-end reads, write "None" without quotes
     PLATEFORM: name of the sequencing platform used to generate the data (e.g., PACBIO, ONT, ILLUMINA, ...)
