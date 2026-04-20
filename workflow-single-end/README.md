@@ -1,15 +1,15 @@
-Variant calling worklow (Snakemake) documentation
+# Variant calling worklow (Snakemake) documentation
 
 Authors: Chiara Bortoluzzi, Christian de Guttry, Robert Waterhouse
 
 Institution: SIB Swiss Institute of Bioinformatics
 
 
-What is this variant calling worklow?
+# What is this variant calling worklow?
 
 This pipeline is based on Snakemake and its scope is to estimate population genomics metrics from bi-allelic SNPs.  
 
-1. Inputs
+## 1. Inputs
 
 The user must modify the config.yaml file to provide all necessary inputs for the pipeline. These inputs are:
 - Reference genome in FASTA format. You do not need to index it, because the Snakemake pipeline will do it for you.
@@ -22,24 +22,13 @@ The user must modify the config.yaml file to provide all necessary inputs for th
 The config.yaml file should also be used to modify the parameters for the various programs used in this Snakemake pipeline. 
 
 
-2. Data processing
+## 2. Data processing
 
 The pipeline is made of the following data processing steps:
 
-    FastQC
-
-This rule allows to perform a quality check of the FASTQ reads.
-
-    FastP
-
-This rule trims FASTQ reads. 
-
-    Mapping
-
-Generate an index file for the reference genome.
-
-Align FASTQ reads against the reference genome with bw-mem2, mark duplicates with samblaster, sort and index with samtools.
-
+1. FastQC: this rule allows to perform a quality check of the FASTQ reads.
+2. FastP: this rule trims FASTQ reads. 
+3. Mapping: align FASTQ reads against the reference genome with bw-mem2, mark duplicates with samblaster, sort and index with samtools.
 
 
 In the config.yaml file the following programmes are expected to be installed via conda. Otherwise, you are welcome to modify the path to the programmes if you don't want to install them via conda: 
