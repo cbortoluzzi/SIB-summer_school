@@ -53,11 +53,36 @@ include:
 
 rule all:
     input:
-        expand("results/{species}/fastqc/{prefix}_fastqc.html", zip, prefix = all_reads.keys(), species=[v["species"] for v in all_reads.values()]),
-        expand("results/{species}/fastqc/{prefix}_fastqc.zip",  zip, prefix = all_reads.keys(), species=[v["species"] for v in all_reads.values()]),        
-        expand("results/{species}/fastp/{prefix}_fastp.html", zip, prefix = all_reads.keys(), species = [v["species"] for v in all_reads.values()]),
-        expand("results/{species}/fastp/{prefix}_fastp.json", zip, prefix = all_reads.keys(), species = [v["species"] for v in all_reads.values()]),
-        expand("results/{species}/fastp/{prefix}.trim.fastq.gz", zip, prefix = all_reads.keys(), species = [v["species"] for v in all_reads.values()]),
+        # FastQC 
+        expand("results/{species}/fastqc/{prefix}_fastqc.html",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
+        expand("results/{species}/fastqc/{prefix}_fastqc.zip",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
+        # Fastp
+        expand("results/{species}/fastp/{prefix}_fastp.html",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
+        expand("results/{species}/fastp/{prefix}_fastp.json",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
+        expand("results/{species}/fastp/{prefix}.trim.fastq.gz",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
+        # BWA-mem
         expand(config["reference_genome"] + ".ann"),
-        expand("results/{species}/bwa-mem/{prefix}.aln.sort.bam", zip, prefix = all_reads.keys(), species = [v["species"] for v in all_reads.values()]),
-        expand("results/{species}/bamtools/{prefix}.aln.sort.bamtools", zip, prefix = all_reads.keys(), species = [v["species"] for v in all_reads.values()])(snakemake) ebi-501:workflow-single-end chiarabort
+        expand("results/{species}/bwa-mem/{prefix}.aln.sort.bam",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
+        # Bamtools
+        expand("results/{species}/bamtools/{prefix}.aln.sort.bamtools",
+               zip,
+               prefix = all_reads.keys(),
+               species = [v["species"] for v in all_reads.values()]),
