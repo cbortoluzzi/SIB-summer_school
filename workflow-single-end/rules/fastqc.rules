@@ -1,0 +1,33 @@
+"""
+Rules for checking the quality of a FASTQ file.
+"""
+
+def get_fastq(wildcards):
+    reads = all_reads[wildcards.prefix]["reads"]
+    return reads
+
+
+def get_species(wildcards):
+    species = all_reads[wildcards.prefix]["species"]
+    return species
+
+
+rule fastqc:
+    input:
+        reads = get_fastq
+   
+    params:
+        output_dir = "results/{species}/fastqc",
+        species = get_species
+
+    output:
+        html = "results/{species}/fastqc/{prefix}_fastqc.html",
+        zip_f = "results/{species}/fastqc/{prefix}_fastqc.zip"
+
+    threads: 16
+
+    shell:
+        """
+        mkdir -p {params.output_dir}
+        {config[bin][fastqc]} {input.reads} -t {threads} -o {params.output_dir} -dir /tmp
+        """
