@@ -1,7 +1,7 @@
 ##### Data inputs #####
 # The reference genome: need to be indexed with bwa index
 # Ideally, the reference genome is soft-masked
-reference_genome: "/path/to/reference/genome/reference_genome.fasta"
+reference_genome: "data/ref/NC_071641.1.fasta"
 
 
 # Tab delimited file containing the following columns:
@@ -9,7 +9,7 @@ reference_genome: "/path/to/reference/genome/reference_genome.fasta"
 # R1 READS: absolute path of R1 reads
 # R2 READS: absolute path of R2 reads. If single reads, write "None"
 # PLATEFORM: plateform used for sequencing (e.g., PACBIO, ONT, ILLUMINA, etc)
-reads: "data/input_data.csv"
+reads: "data/reads/input_data.csv"
 
 
 ##### Parameters setting #####
