@@ -1,4 +1,6 @@
 
+from snakemake.exceptions import MissingInputException
+
 """
 Rules for aligning reads to the reference genome with bwa-mem2, mark duplicates with samblaster, sort and index with samtools. 
 """
