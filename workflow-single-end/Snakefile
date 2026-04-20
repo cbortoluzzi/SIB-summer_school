@@ -1,11 +1,4 @@
-# Author: Chiara Bortoluzzi
-# Affiliation: SIB Swiss Institute of Bioinformatics
-# Project: SNF project funding
-# Last modified: 17 April 2026
-
-
 import os
-import glob
 import yaml
 from pathlib import Path
 from snakemake.exceptions import MissingInputException
