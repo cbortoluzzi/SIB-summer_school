@@ -1,7 +1,7 @@
 ##### Data inputs #####
 # The reference genome: need to be indexed with bwa index
 # Ideally, the reference genome is soft-masked
-reference_genome: "/Users/chiarabortoluzzi/Desktop/SIB/Environmental_Bioinformatics_Group/Projects/SNF/data/Dendrocoptes_medius/ref/NC_071612.1.fasta"
+reference_genome: "/path/to/reference/genome/reference_genome.fasta"
 
 
 # Tab delimited file containing the following columns:
@@ -9,7 +9,7 @@ reference_genome: "/Users/chiarabortoluzzi/Desktop/SIB/Environmental_Bioinformat
 # R1 READS: absolute path of R1 reads
 # R2 READS: absolute path of R2 reads. If single reads, write "None"
 # PLATEFORM: plateform used for sequencing (e.g., PACBIO, ONT, ILLUMINA, etc)
-reads: "/Users/chiarabortoluzzi/Desktop/SIB/Environmental_Bioinformatics_Group/Projects/SNF/data/Dendrocoptes_medius/input_data.csv"
+reads: "data/input_data.csv"
 
 
 ##### Parameters setting #####
