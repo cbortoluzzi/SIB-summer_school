@@ -1,0 +1,18 @@
+from snakemake.exceptions import MissingInputException
+
+"""
+Rules for indexing the reference genome with bwa-mem2. 
+"""
+
+        
+rule bwa_index:
+    input:
+        ref = config["reference_genome"]
+        
+    output:
+        config["reference_genome"] + ".ann"
+                
+    threads: 16
+        
+    shell:
+        "{config[bin][bwa-mem2]} index {input.ref}"

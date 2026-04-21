@@ -1,0 +1,51 @@
+from snakemake.exceptions import MissingInputException
+
+"""
+Rules for aligning reads to the reference genome with bwa-mem2, mark duplicates with samblaster, sort and index with samtools. 
+"""
+
+
+def get_index(wildcards):
+    idx = all_reads[wildcards.prefix]["idx"]
+    return idx
+
+
+def get_species(wildcards):
+    species = all_reads[wildcards.prefix]["species"]
+    return species
+
+
+def get_plateform(wildcards):
+    plateform = all_reads[wildcards.prefix]["plateform"]
+    return plateform
+
+
+rule bwa_mem2:
+    input:
+        ref = config["reference_genome"],
+        r1 = lambda wildcards: all_reads[wildcards.prefix]["reads"][0],
+        r2 = lambda wildcards: all_reads[wildcards.prefix]["reads"][1]
+    
+    params:
+        idx = get_index,
+        species = get_species,
+        plateform = get_plateform,
+
+    output:
+        bam = "results/{species}/bwa-mem/{prefix}.aln.bam",
+        sort_bam = "results/{species}/bwa-mem/{prefix}.aln.sort.bam"
+                
+    threads: 16
+        
+    shell:
+        """
+        {config[bin][bwa-mem2]} mem \
+            -R '@RG\\tID:{wildcards.prefix}\\tPL:{params.plateform}\\tSM:{wildcards.prefix}\\tLB:lib_{params.idx}\\tPU:pu_{params.idx}\' \
+            -M -T {config[min_score]} -t {threads} \
+            {input.ref} {input.r1} {input.r2}  \
+        | {config[bin][samblaster]} -M \
+        | {config[bin][samtools]} view -Sb -@ {threads} > {output.bam}
+        {config[bin][samtools]} sort -t {threads} -m 2G -o {output.sort_bam} {output.bam}
+        {config[bin][samtools]}  index -@ {threads} {output.sort_bam}
+        """
+        
