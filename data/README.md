@@ -2,7 +2,7 @@
 
 The **wgs_runs_biodiversity_summer_school.csv** file contains information about the set of species we will analyse during the Biodiversity Summer School. Information are as follow:
 1. run_accession (e.g., ERR, SRR).
-2. tax_id: taxon ID of the species.
+2. tax_id: NCBI Taxonomy ID of the species.
 3. scientific_name: scientific name of the species. This is the latin name.
 4. study_accession: BioProject (e.g., PRJEBXXX).
 5. sample_accession: BioSample (e.g., SAMEAXXX).
