@@ -1,6 +1,6 @@
 ## Data
 
-The =wgs_runs_biodiversity_summer_school.csv= file contains information about all species to be analysed during the Biodiversity Summer School.
+The **wgs_runs_biodiversity_summer_school.csv** file contains information about all species to be analysed during the Biodiversity Summer School.
 
 These species are:
 1. Anodonta anatina
