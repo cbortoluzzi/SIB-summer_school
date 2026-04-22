@@ -20,6 +20,11 @@ All softwares required to run the Snakemake workflows are expected to be install
 
 If any of the required softwares are already installed on your local laptop or cluster, please provide the absolute path to the software via the config.yaml file that you can find in each workflow. 
 
+To download the workflows, run:
+```
+git@github.com:cbortoluzzi/SIB-summer_school.git
+```
+
 ## Variant calling
 The scope of Topic 3 is to have students developing their own workflow on the provided BAM files to call variants. We expect them to use a combination of the following softwares:
 - GATK v4.6.2.0
