@@ -25,6 +25,9 @@ To download the workflows, run:
 git clone git@github.com:cbortoluzzi/SIB-summer_school.git
 ```
 
+**All data used in the Biodiversity Bioinformatics Summer School are paired-end data!**
+
+
 ## Variant calling
 The scope of Topic 3 is to have students developing their own workflow on the provided BAM files to call variants. We expect them to use a combination of the following softwares:
 - GATK v4.6.2.0
