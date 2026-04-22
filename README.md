@@ -10,7 +10,7 @@ This GitHub repository contains two Snakemake workflows:
 
 Both workflows check the quality of a FASTQ file with FastQC, trim and filter out bad reads with FastP, align trimmed FASTQ files to the reference genome with BWA-MEM2, and assess the quality of the obtained BAM file with bamtools.
 
-All softwares required to run the Snakemake workflows are expected to be installed via conda. The versions are:
+All softwares required to run the Snakemake workflows are expected to be installed via conda. These are:
 - FastQC v0.12.1
 - FastP v1.3.2
 - BWA-MEM2 v2.3
