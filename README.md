@@ -22,7 +22,7 @@ If any of the required softwares are already installed on your local laptop or c
 
 To download the workflows, run:
 ```
-git@github.com:cbortoluzzi/SIB-summer_school.git
+git clone git@github.com:cbortoluzzi/SIB-summer_school.git
 ```
 
 ## Variant calling
