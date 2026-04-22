@@ -28,6 +28,6 @@ The species included in this dataset are:
 
 For all species, but _Bison bonasus_, we selected 15 individuals with the highest read count. Selected individuals belong to the same BioProject and were produced using the same instrument model, instrument platform, and library strategy. 
 
-For Cap__ra ibex we have both RAD-Seq and WGS.
+For _Capra ibex_ we have both RAD-Seq and WGS.
 
 The **genome_assemblies_biodiversity_summer_school.csv** file contains information about the reference genome to be used for each species. For each reference genome, we specify its quality (scaffold, chromosome) and whether the assembly is the one of the target species. For instance, for _Anodonta anatina_ the reference genome to be used is the one of _Anodonta cygnea_, which is a sister species. 
