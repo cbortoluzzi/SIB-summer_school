@@ -39,7 +39,7 @@ The scope of Topic 3 is to have students developing their own workflow on the pr
 ## Paramenters estimation
 We expect students to compute the following parameters:
 1. Genetic diversity / intraspecific genetic diversity: estimated with measures such as allelic richness, heterozygosity, and nucleotide diversity (π).
-2. Genetic differentiation: estimated as the number of genetic units/lineages and the degree of divergence among populations, using measures like FST, GST, or Dest.
+2. Genetic differentiation: estimated as the number of genetic units/lineages and the degree of divergence among populations, using measures like FST, GST, or Dest (NOT FOR THIS COURSE)
 3. Inbreeding: estimated from genomic relatedness or identity-by-descent, including metrics such as FIS or runs of homozygosity (FROH).
 4. Effective population size (Ne): estimated from genomic data using methods such as linkage-disequilibrium-based Ne or temporal Ne.
 
