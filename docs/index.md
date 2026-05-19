@@ -187,7 +187,7 @@ The purpose of the exercise is not to produce a definitive indicator. It is to u
 
 ---
 
-## Day 1 ??? Sunday: Welcome and orientation
+## Day 1 Sunday: Welcome and orientation
 
 The first evening is dedicated to arrival, registration, and informal introductions. The aim is to establish a shared working environment before the technical work begins.
 
@@ -197,7 +197,7 @@ By the end of the evening, participants should understand the structure of the w
 
 ---
 
-## Day 2 ??? Monday: From biodiversity questions to genomic analyses
+## Day 2 Monday: From biodiversity questions to genomic analyses
 
 Monday introduces the scientific and technical logic of the project.
 
@@ -211,7 +211,7 @@ By the end of Monday, each group should have a dataset, a biological context, an
 
 ---
 
-## Day 3 ??? Tuesday: From raw reads to mapped data
+## Day 3 Tuesday: From raw reads to mapped data
 
 Tuesday focuses on the first part of the genomic workflow: raw data quality control, trimming, alignment, and alignment checks.
 
@@ -225,7 +225,7 @@ By the end of Tuesday, each group should have produced or inspected mapped BAM f
 
 ---
 
-## Day 4 ??? Wednesday: From mapped reads to genomic variation
+## Day 4 Wednesday: From mapped reads to genomic variation
 
 Wednesday focuses on genomic variation.
 
@@ -241,7 +241,7 @@ By the end of Wednesday, each group should understand which genomic variation ap
 
 ---
 
-## Day 5 ??? Thursday: From genomic metrics to a policy-facing GenoScore
+## Day 5 Thursday: From genomic metrics to a policy-facing GenoScore
 
 Thursday focuses on interpretation and communication.
 
@@ -255,7 +255,7 @@ By the end of Thursday, each group should have both a scientific interpretation 
 
 ---
 
-## Day 6 ??? Friday: Presenting results
+## Day 6 Friday: Presenting results
 
 Friday is dedicated to synthesis.
 
@@ -306,11 +306,11 @@ Downstream analyses may include estimates of genetic diversity, heterozygosity, 
 
 Two remote talks will provide the conceptual frame for the project.
 
-### Talk 1 ??? Essential Biodiversity Variables and genomic data
+### Talk 1: Essential Biodiversity Variables and genomic data
 
-This talk will introduce the Essential Biodiversity Variable concept and explain how genomic data can contribute to biodiversity monitoring. It will cover the purpose of standardized biodiversity measurements, the position of genetic composition within EBV frameworks, and the possible role of genomic analyses in monitoring change.
+This talk will introduce the Essential Biodiversity Variable concept and explain how genomic data can contribute to biodiversity monitoring. It will cover the purpose of standardised biodiversity measurements, the position of genetic composition within EBV frameworks, and the possible role of genomic analyses in monitoring change.
 
-### Talk 2 ??? From genomic metrics to policy indicators
+### Talk 2: From genomic metrics to policy indicators
 
 This talk will focus on the relationship between genomic metrics, Essential Biodiversity Variables, and policy indicators. It will examine why genomic results are difficult to communicate, how a GenoScore might simplify the message, and where such simplification may create risks. The talk will also address uncertainty, limitations, and responsible interpretation.
 
