@@ -1,0 +1,7 @@
+title: Computing Genomic Essential Biodiversity Variables
+description: Biodiversity Bioinformatics Summer School 2026
+theme: minima
+
+markdown: kramdown
+kramdown:
+  input: GFM
