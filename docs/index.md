@@ -275,14 +275,15 @@ The datasets used during the summer school will be selected from public whole-ge
 
 | Species | Whole-genome sequencing data | Reference genome | Notes |
 |---|---|---|---|
-| *Capra ibex* | https://www.ebi.ac.uk/ena/browser/view/PRJNA514886 | https://www.ebi.ac.uk/ena/browser/view/GCA_054855995.1 and https://www.ebi.ac.uk/ena/browser/view/GCA_054856215.1 | Alpine ibex, with clear conservation relevance. |
-| *Anodonta* species | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | *Anodonta cygnea* assembly under curation | Freshwater mussels, with a large dataset. |
-| *Bos taurus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB83441 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002263795.3/ | Domestic cattle, with many public genomic resources. |
-| *Gasterosteus aculeatus* | https://www.ebi.ac.uk/ena/browser/view/PRJNA566094 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_964276395.1/ | Three-spined stickleback. |
+| *Anodonta anatina* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
+| *Anodonta exulcerata* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
 | *Bison bonasus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB71066 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_963879515.1/ | European bison, with a small dataset and strong conservation relevance. |
-| *Tyto alba* | To be confirmed | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_018691265.1/ | Barn owl, with a limited number of individuals. |
+| *Bos taurus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB83441 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002263795.3/ | Domestic cattle, with many public genomic resources. |
+| *Capra ibex* | https://www.ebi.ac.uk/ena/browser/view/PRJNA514886 | https://www.ebi.ac.uk/ena/browser/view/GCA_054855995.1 and https://www.ebi.ac.uk/ena/browser/view/GCA_054856215.1 | Alpine ibex, with clear conservation relevance. |
+| *Erebia cassioides* species | https://www.ebi.ac.uk/ena/browser/view/PRJEB54919 | Several references to be confirmed | Butterfly datasets, with many individuals and reference choice to be confirmed. |
+| *Gasterosteus aculeatus* | https://www.ebi.ac.uk/ena/browser/view/PRJNA566094 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_964276395.1/ | Three-spined stickleback. |
+| *Tyto alba* | https://www.ebi.ac.uk/ena/browser/view/PRJNA925445 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_018691265.1/ | Barn owl, with a limited number of individuals. |
 | *Zymoseptoria tritici* | https://www.ebi.ac.uk/ena/browser/view/PRJNA596434 | https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000219625.1/ | Fungal pathogen, with a large public dataset. |
-| *Erebia* species | https://www.ebi.ac.uk/ena/browser/view/PRJEB54919 | Several references to be confirmed | Butterfly datasets, with many individuals and reference choice to be confirmed. |
 
 For the training, we will use reduced datasets to keep the analyses feasible within the available time. This may involve a selected chromosome, a limited genomic region, or a reduced number of individuals.
 
