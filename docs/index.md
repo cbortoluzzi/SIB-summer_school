@@ -187,6 +187,8 @@ The purpose of the exercise is not to produce a definitive indicator. It is to u
 
 ---
 
+The programme may change depending on the participants skills.
+
 ## Day 1 Sunday: Welcome and orientation
 
 The first evening is dedicated to arrival, registration, and informal introductions. The aim is to establish a shared working environment before the technical work begins.
