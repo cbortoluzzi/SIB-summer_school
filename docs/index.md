@@ -51,10 +51,10 @@ The project is designed as a hands-on activity. Participants will run or inspect
 Department of Ecology and Evolution, University of Lausanne, Switzerland
 
 **Dr Chiara Bortoluzzi**  
-Environmental Bioinformatics, SIB Swiss Institute of Bioinformatics
+Environmental Bioinformatics, SIB Swiss Institute of Bioinformatics, Switzerland
 
 **Dr Christian de Guttry**  
-Environmental Bioinformatics, SIB Swiss Institute of Bioinformatics
+Environmental Bioinformatics, SIB Swiss Institute of Bioinformatics, Switzerland
 
 ---
 
