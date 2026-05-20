@@ -285,7 +285,7 @@ The datasets used during the summer school will be selected from public whole-ge
 | *Tyto alba* | https://www.ebi.ac.uk/ena/browser/view/PRJNA925445 | https://www.ebi.ac.uk/ena/browser/view/GCA_018691265.1 | Barn owl, with a limited number of individuals. |
 | *Zymoseptoria tritici* | https://www.ebi.ac.uk/ena/browser/view/PRJNA596434 | https://www.ebi.ac.uk/ena/browser/view/GCA_000219625.1 | Fungal pathogen, with a large public dataset. |
 
-For the training, we will use reduced datasets to keep the analyses feasible within the available time. This may involve a selected chromosome, a limited genomic region, or a reduced number of individuals.
+For the training, we will use a reduced dataset for each species to keep the analyses feasible within the available time. This may involve a selected chromosome, a limited genomic region, or a reduced number of individuals.
 
 ---
 
@@ -361,6 +361,7 @@ A simple command-line self-check is provided below.
     rm test.txt
     cd ..
     rmdir test_directory
+    rm -r test_directory
 
 ---
 
