@@ -6,7 +6,7 @@
 
 Welcome to the project page for **Topic 3: Computing Genomic Essential Biodiversity Variables**.
 
-This project introduces a practical biodiversity genomics workflow, from sequence data processing to the interpretation of genomic metrics. Participants will work in small groups on public whole-genome sequencing data and will use them to explore population genomics parameters, being genetic diversity, population structure, inbreeding, and effective population size.
+This project introduces a practical biodiversity genomics workflow, from sequence data processing to the interpretation of genomic metrics. Participants will work in small groups on public whole-genome sequencing data and will use them to explore population genomic parameters, being genetic diversity, population structure, inbreeding, and effective population size.
 
 The project has a second aim that is central to the week. Participants will examine how genomic results can be communicated to people who may not have a genomics background, such as conservation practitioners, managers, and policy-makers. To support this exercise, each group will design a simple interpretation framework, provisionally called a **GenoScore**.
 
@@ -62,7 +62,7 @@ Environmental Bioinformatics, SIB Swiss Institute of Bioinformatics, Switzerland
 
 Essential Biodiversity Variables are standardized biological measurements used to describe biodiversity change across time, space, and levels of biological organization. They are intended to help connect biodiversity observations with indicators that can support monitoring, reporting, and policy discussions.
 
-In this project, we focus on genomic information that can inform genetic components of biodiversity. Participants will use whole-genome sequencing (WGS) data to estimate and interpret population genomics metrics related to genetic diversity, population differentiation, inbreeding, and effective population size.
+In this project, we focus on genomic information that can inform genetic components of biodiversity. Participants will use whole-genome sequencing (WGS) data to estimate and interpret population genomic metrics related to genetic diversity, population differentiation, inbreeding, and effective population size.
 
 The technical aim is to understand the logic of a population genomics workflow. The interpretive aim is to examine how genomic evidence can be converted into a message that remains scientifically sound while being understandable to a non-specialist audience.
 
@@ -101,23 +101,23 @@ The GenoScore should not be treated as a simple average unless the group can jus
 
 ## Genomic metrics used for the GenoScore
 
-Each group will estimate or interpret five genomic metrics. These metrics represent complementary aspects of the genomic status of a population or species.
+Each group will estimate and interpret five population genomic metrics. These metrics represent complementary aspects of the genomic status of a population or species.
 
 | Metric | Biological meaning | Possible relevance for the GenoScore |
 |---|---|---|
 | **Genome-wide genetic diversity** | The amount of genetic variation within the sampled population, measured for example through nucleotide diversity or genome-wide heterozygosity. | Low diversity may reflect bottlenecks, small population size, or reduced adaptive potential. |
 | **Heterozygosity or allelic richness** | Individual-level or population-level variation at polymorphic sites. | Reduced heterozygosity or allelic richness may indicate loss of variation or increased relatedness among individuals. |
 | **Population structure or genetic differentiation** | The degree of separation among sampled groups or populations. | Strong structure may indicate isolation, fragmentation, or differentiated management units. |
-| **Inbreeding or runs of homozygosity** | Genomic evidence of relatedness among parents or recent demographic decline. | High inbreeding may indicate small population size, recent bottlenecks, or reduced fitness potential. |
+| **Inbreeding or runs of homozygosity** | Genomic evidence of relatedness among individuals often indicative of recent demographic decline. | High inbreeding may indicate small population size, recent bottlenecks, or reduced fitness potential. |
 | **Effective population size** | The number of breeding individuals contributing genetically to future generations. | Low effective population size suggests stronger genetic drift and continued loss of variation over time. |
 
-The metrics should be interpreted together. A useful GenoScore framework should explain whether the metrics tell a consistent story or whether they provide mixed evidence.
+The above metrics should be interpreted together. A useful GenoScore framework should explain whether the metrics tell a consistent story or whether they provide mixed evidence.
 
 ---
 
 ## Skills and experience
 
-Participants should have basic experience with the Linux or UNIX command line and basic experience with R. The project also requires a willingness to work in small groups, inspect errors carefully, and discuss analytical decisions.
+Participants should have basic experience with the Linux or UNIX command line and basic experience with R and/or python. The project also requires a willingness to work in small groups, help each other out when errors occur, and discuss analytical decisions.
 
 Prior experience with sequencing technologies and file formats such as FASTQ, FASTA, BAM, and VCF will be useful, but it is not required. A basic understanding of population genetics will also help participants interpret the results.
 
@@ -155,7 +155,7 @@ The project follows a complete analysis and interpretation pathway, from a biolo
 
 Each group will work with a selected species dataset. To keep the work feasible during the week, the analyses may use a reduced dataset, such as a selected chromosome, a limited genomic region, or a subset of individuals.
 
-The technical workflow will generate genomic metrics. The final task is broader. Each group must decide how those metrics can be translated into a simple, transparent, and biologically justified message for non-specialist decision-makers.
+The aim of the above workflow is for the participants to generate genomic metrics. The final task is broader. Each group must decide how those metrics can be translated into a simple, transparent, and biologically justified message for non-specialist decision-makers.
 
 ---
 ## Main student challenge
