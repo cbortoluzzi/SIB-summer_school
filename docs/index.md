@@ -64,7 +64,7 @@ Essential Biodiversity Variables are standardized biological measurements used t
 
 In this project, we focus on genomic information that can inform genetic components of biodiversity. Participants will use whole-genome sequencing (WGS) data to estimate and interpret population genomics metrics related to genetic diversity, population differentiation, inbreeding, and effective population size.
 
-The technical aim is to understand the logic of a population genomics workflow. The interpretive aim is to examine how genomic evidence can be converted into a message that remains scientifically honest while being understandable to a non-specialist audience.
+The technical aim is to understand the logic of a population genomics workflow. The interpretive aim is to examine how genomic evidence can be converted into a message that remains scientifically sound while being understandable to a non-specialist audience.
 
 ---
 
@@ -76,7 +76,7 @@ During the summer school, participants will therefore estimate genomic metrics a
 
 The GenoScore should translate genomic evidence into a small number of categories, for example from **1 to 4**. The score should be simple enough to communicate, but it must be based on explicit biological reasoning. It should also make uncertainty visible, especially when datasets are small, unevenly sampled, or limited to part of the genome.
 
-The aim is not to create a universal genomic index during one week. The aim is to let participants examine the scientific and communication challenges involved in turning genomic metrics into policy-relevant information.
+The aim is not to create a universal genomic index during one week. The aim is to let participants examine the scientific and communication challenges involved in turning genomic metrics into a policy-relevant information.
 
 ---
 
