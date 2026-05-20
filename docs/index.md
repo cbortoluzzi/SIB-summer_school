@@ -6,7 +6,7 @@
 
 Welcome to the project page for **Topic 3: Computing Genomic Essential Biodiversity Variables**.
 
-This project introduces a practical biodiversity genomics workflow, from sequence data processing to the interpretation of genomic metrics. Participants will work in small groups on public whole-genome sequencing data and will use them to explore population genomics parameters, such as genetic diversity, population structure, inbreeding, and effective population size.
+This project introduces a practical biodiversity genomics workflow, from sequence data processing to the interpretation of genomic metrics. Participants will work in small groups on public whole-genome sequencing data and will use them to explore population genomics parameters, such as genetic diversity, population structure, inbreeding, and effective population size (N_e).
 
 The project has a second aim that is central to the week. Participants will examine how genomic results can be communicated to people who may not have a genomics background, including conservation practitioners, managers, and policy-makers. To support this exercise, each group will design a simple interpretation framework, provisionally called a **GenoScore**.
 
