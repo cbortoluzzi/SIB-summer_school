@@ -89,9 +89,9 @@ The score should be clear enough for a non-specialist audience, but it should re
 | GenoScore | Interpretation | Possible policy-facing message |
 |---|---|---|
 | **4** | Genomic status appears favourable | The available genomic evidence suggests relatively high genetic diversity, limited inbreeding, and no clear genomic warning signal. Continued monitoring remains appropriate. |
-| **3** | Some concern | One or more genomic metrics suggest reduced diversity, population subdivision, or early warning signs. Continued or increased monitoring may be justified. |
+| **3** | Some concern | One or more genomic metrics suggest reduced diversity, population subdivision, or early warning signs. Increased monitoring may be justified. |
 | **2** | Elevated concern | Several genomic metrics suggest reduced genetic viability, increased inbreeding, fragmentation, or low effective population size. Conservation attention may be needed. |
-| **1** | High concern | The available genomic evidence suggests severe loss of diversity, strong inbreeding, very low effective population size, or marked isolation. Management action may need to be considered. |
+| **1** | High concern | The available genomic evidence suggests severe loss of diversity, strong inbreeding, very low effective population size, or marked isolation. Management actions need to be put in place. |
 
 Groups may modify this structure. They should explain which metrics they used, how each metric influenced the score, whether all metrics were given the same weight, and how uncertainty affected the final interpretation.
 
