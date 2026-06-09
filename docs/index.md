@@ -278,7 +278,7 @@ The datasets used during the summer school will be selected from public whole-ge
 | *Anodonta anatina* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
 | *Anodonta exulcerata* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
 | *Bison bonasus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB71066 | https://www.ebi.ac.uk/ena/browser/view/GCA_963879515.1 | European bison, with a small dataset and strong conservation relevance. |
-| *Bos taurus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB83441 | https://www.ebi.ac.uk/ena/browser/view/GCA_002263795.4 | Domestic cattle, with many public genomic resources. |
+| *Bos taurus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB83441 | To be replaced! | Domestic cattle, with many public genomic resources. |
 | *Capra ibex* | https://www.ebi.ac.uk/ena/browser/view/PRJNA514886 | https://www.ebi.ac.uk/ena/browser/view/GCA_054642885.1 | Alpine ibex, with clear conservation relevance. |
 | *Erebia cassioides* species | https://www.ebi.ac.uk/ena/browser/view/PRJEB54919 | https://www.ebi.ac.uk/ena/browser/view/GCA_976986335.1 | Butterfly datasets, with many individuals and reference choice to be confirmed. |
 | *Gasterosteus aculeatus* | https://www.ebi.ac.uk/ena/browser/view/PRJNA566094 | https://www.ebi.ac.uk/ena/browser/view/GCA_964276395.1 | Three-spined stickleback. |
