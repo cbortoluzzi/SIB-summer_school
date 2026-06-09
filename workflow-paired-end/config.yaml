@@ -29,7 +29,7 @@ min_score: 30                   # Minimum score to output, default: 30 (-T)
 bin: 
     # FastQC v0.12.1
     fastqc : "fastqc"
-    # Fastp v1.3.2
+    # Fastp v1.3.3
     fastp: "fastp"
     # BWA-MEM2 v2.3
     bwa-mem2 : "bwa-mem2"
