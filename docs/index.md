@@ -282,7 +282,7 @@ The datasets used during the summer school will be selected from public whole-ge
 | *Capra ibex* | https://www.ebi.ac.uk/ena/browser/view/PRJNA514886 | https://www.ebi.ac.uk/ena/browser/view/GCA_054642885.1 | Alpine ibex, with clear conservation relevance. |
 | *Erebia cassioides* species | https://www.ebi.ac.uk/ena/browser/view/PRJEB54919 | https://www.ebi.ac.uk/ena/browser/view/GCA_976986335.1 | Butterfly datasets, with many individuals and reference choice to be confirmed. |
 | *Gasterosteus aculeatus* | https://www.ebi.ac.uk/ena/browser/view/PRJNA566094 | https://www.ebi.ac.uk/ena/browser/view/GCA_964276395.1 | Three-spined stickleback. |
-| *Tyto alba* | https://www.ebi.ac.uk/ena/browser/view/PRJNA925445 | https://www.ebi.ac.uk/ena/browser/view/GCA_018691265.1 | Barn owl, with a limited number of individuals. |
+| *Tyto alba* | https://www.ebi.ac.uk/ena/browser/view/PRJNA925445 | To be replaced! | Barn owl, with a limited number of individuals. |
 | *Zymoseptoria tritici* | https://www.ebi.ac.uk/ena/browser/view/PRJNA596434 | https://www.ebi.ac.uk/ena/browser/view/GCA_017766645.1 | Fungal pathogen, with a large public dataset. |
 
 For the training, we will use a reduced dataset for each species to keep the analyses feasible within the available time. This may involve a selected chromosome, a limited genomic region, or a reduced number of individuals.
