@@ -275,6 +275,7 @@ The datasets used during the summer school will be selected from public whole-ge
 
 | Species | Whole-genome sequencing data | Reference genome | Notes |
 |---|---|---|---|
+| *Anodonta cygnea* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
 | *Anodonta anatina* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
 | *Anodonta exulcerata* | https://www.ebi.ac.uk/ena/browser/view/PRJEB86155 | https://www.ebi.ac.uk/ena/browser/view/GCA_980915975.2 | Freshwater mussels, with a large dataset. |
 | *Bison bonasus* | https://www.ebi.ac.uk/ena/browser/view/PRJEB71066 | https://www.ebi.ac.uk/ena/browser/view/GCA_963879515.1 | European bison, with a small dataset and strong conservation relevance. |
