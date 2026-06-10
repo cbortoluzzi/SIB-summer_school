@@ -1,0 +1,223 @@
+# Author: Chiara Bortoluzzi
+# Affiliation: SIB Swiss Institute of Bioinformatics
+# Project: Mine2Map
+# Last modified: 10 June 2026
+
+
+import csv
+from pathlib import Path
+
+
+
+configfile: "config.yaml"
+
+
+def parse_data(input_file):
+    sep = "\t" if input_file.endswith("tsv") else ","
+    fields = []
+    with open(input_file) as f:
+        reader = csv.DictReader(f, delimiter = sep)
+        for row in reader:
+            for key in row:
+                if "scientific_name" in key or "reference_genome" in key:  
+                    row[key] = row[key].replace(' ', '_')
+            fields.append(row)
+    return fields
+
+
+READS = parse_data(config["GENOMIC_DATA"])
+GENOMES = parse_data(config["REFERENCE_GENOMES"])
+SPECIES_TO_REFERENCE = parse_data(config["SPECIES_MATCH"])
+
+
+##--------------------------------------------------------------------------------------##
+## Download GENOMIC DATA
+##--------------------------------------------------------------------------------------##
+
+def get_fastq():
+    fastq_list = []
+    for read in READS:
+        read["scientific_name"] = read["scientific_name"].replace(" ", "_")
+        # Define output directory
+        # We do not need to check if directory exists because Snakemake skips jobs where the output already exists
+        # An example output directory is: reads/Anodonta_anatina/WGS/SAMEA117760296
+        output_dir = Path("reads") / read["scientific_name"] / read["library_strategy"] / read["sample_accession"]
+        for fastq in filter(None, [read["fastq_1"], read["fastq_2"]]):
+            # Reformat FTP 
+            url = f"https://{fastq}" if not fastq.startswith("http") else fastq
+            filename = fastq.split("/")[-1]
+            fastq_list.append((str(output_dir / filename), url))
+    return fastq_list
+
+
+DOWNLOAD_FASTQ = get_fastq()
+FASTQ_URL_MAP = {path: url for path, url in DOWNLOAD_FASTQ}
+FASTQ_PATHS = list(FASTQ_URL_MAP.keys())
+
+
+##--------------------------------------------------------------------------------------##
+## Download REFERENCE GENOME
+##--------------------------------------------------------------------------------------##
+
+def get_genome():
+    genomes_list = []
+    for genome in GENOMES:
+        genome["scientific_name"] = genome["scientific_name"].replace(" ", "_")
+        # Define output directory
+        # An example output directory is: genomes/Anodonta_anatina
+        output_dir = Path("genomes") / genome["scientific_name"]
+        genome_assembly = genome["assembly_accession"] + '.' + genome["version"]
+        fasta = genome_assembly + '.fasta'
+        url = f"https://www.ebi.ac.uk/ena/browser/api/fasta/{genome_assembly}?download=true&gzip=true"
+        genomes_list.append((str(output_dir / fasta), url))
+    return genomes_list
+
+
+DOWNLOAD_GENOME = get_genome()
+GENOME_URL_MAP = {path: url for path, url in DOWNLOAD_GENOME}
+GENOME_PATHS = list(GENOME_URL_MAP.keys())
+
+
+##--------------------------------------------------------------------------------------##
+## Match GENOMIC DATA with REFERENCE GENOMES
+##--------------------------------------------------------------------------------------##
+
+MATCH = {
+    row["scientific_name"]: row["reference_genome"]
+    for row in SPECIES_TO_REFERENCE
+}
+
+GENOME_BY_SPECIES = {
+    g["scientific_name"]: g["assembly_accession"] + '.' + g["version"]
+    for g in GENOMES
+}
+
+
+##--------------------------------------------------------------------------------------##
+## Reformat input
+##--------------------------------------------------------------------------------------##
+
+def reformat_input():
+    all_reads = {}
+    for idx, read in enumerate(READS):
+        reads_list = []
+        for fastq in filter(None, [read["fastq_1"], read["fastq_2"]]):
+            r = f"reads/{read['scientific_name']}/{read['library_strategy']}/{read['sample_accession']}/" + fastq.split('/')[-1]
+            reads_list.append(r)
+        # We need to define the prefix directly from the filename 
+        prefix = Path(r).name.replace('.fastq.gz','').replace('.fq.gz', '').replace('_R1', '').replace('.R1', '').replace('_1', '').replace('_R2', '').replace('_2', '')
+        all_reads[prefix] = {"idx": idx, "scientific_name": read["scientific_name"], "library_strategy": read["library_strategy"], "sample_accession": read["sample_accession"], "reads": reads_list, "instrument_platform": read["instrument_platform"]}
+    return all_reads
+
+REFORMAT_READS = reformat_input()
+
+
+##--------------------------------------------------------------------------------------##
+## Rules declaration
+##--------------------------------------------------------------------------------------##
+    
+include:
+    "rules/fastqc.rules"
+
+include:
+    "rules/fastp.rules"
+
+include:
+    "rules/bwa-index.rules"
+
+## Add rules on reference genome masking
+
+include:
+    "rules/bwa-mem.rules"
+
+include:
+    "rules/bamtools.rules"
+
+
+rule all:
+    input:
+        FASTQ_PATHS,
+        GENOME_PATHS,
+        # FASTQC
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_1_fastqc.html",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"] for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession= [v["sample_accession"] for v in REFORMAT_READS.values()]),
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_2_fastqc.html",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"] for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession= [v["sample_accession"] for v in REFORMAT_READS.values()]),
+        # FASTP
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_fastp.html",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"] for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession= [v["sample_accession"] for v in REFORMAT_READS.values()]),
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_fastp.json",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"] for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession= [v["sample_accession"] for v in REFORMAT_READS.values()]),
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_1.trim.fastq.gz",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"] for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession= [v["sample_accession"] for v in REFORMAT_READS.values()]),
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_2.trim.fastq.gz",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"] for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession= [v["sample_accession"] for v in REFORMAT_READS.values()]),
+        # BWA-mem index
+        expand("genomes/{scientific_name}/{assembly}.bwt.2bit.64",
+            zip,
+            scientific_name = [g["scientific_name"] for g in GENOMES],
+            assembly = [g["assembly_accession"] + '.' + g["version"] + '.fasta' for g in GENOMES]),
+        # BWA-mem alignment
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}.trim.aln.sort.bam",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"]  for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession = [v["sample_accession"] for v in REFORMAT_READS.values()]),  
+        # BAMTOOLS
+        expand("reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}.trim.aln.sort.bamtools",
+            zip,
+            prefix = list(REFORMAT_READS.keys()),
+            scientific_name = [v["scientific_name"]  for v in REFORMAT_READS.values()],
+            library_strategy = [v["library_strategy"] for v in REFORMAT_READS.values()],
+            sample_accession = [v["sample_accession"] for v in REFORMAT_READS.values()]),
+
+
+
+rule download_fastq:
+    wildcard_constraints:
+        filename = r"(?!.*trim).+\.fastq\.gz"
+    output:
+        "reads/{scientific_name}/{library_strategy}/{sample_accession}/{filename}"
+    params:
+        url = lambda wildcard, output: FASTQ_URL_MAP[output[0]]
+    shell:
+        "curl -L -o {output} {params.url}"
+
+
+rule download_genome:
+    wildcard_constraints:
+        filename = r".+\.fasta"
+    output:
+        "genomes/{scientific_name}/{filename}"
+    params:
+        url = lambda wc, output: GENOME_URL_MAP[output[0]]
+    shell:
+        "curl -L -o {output} {params.url}"
+
+
+

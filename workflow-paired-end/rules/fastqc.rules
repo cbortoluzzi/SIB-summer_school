@@ -1,0 +1,24 @@
+"""
+Rules for checking the quality of a FASTQ file.
+"""
+
+
+rule fastqc:
+    input:
+        reads = lambda wildcards: REFORMAT_READS[wildcards.prefix]["reads"]
+
+    params:
+        output_dir = "reads/{scientific_name}/{library_strategy}/{sample_accession}"
+
+    output:
+        html_r1 = "reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_1_fastqc.html",
+        html_r2 = "reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_2_fastqc.html",
+        zip_r1  = "reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_1_fastqc.zip",
+        zip_r2  = "reads/{scientific_name}/{library_strategy}/{sample_accession}/{prefix}_2_fastqc.zip"        
+    
+    threads: 16
+
+    shell:
+        """
+        {config[BIN][fastqc]} {input.reads} -t {threads} -o {params.output_dir} -dir /tmp
+        """

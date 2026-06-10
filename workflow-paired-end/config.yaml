@@ -1,0 +1,32 @@
+##### Data inputs #####
+REFERENCE_GENOMES: "input_genome.csv"
+GENOMIC_DATA: "test.csv"
+SPECIES_MATCH: "species_to_reference.csv"
+
+
+
+##### Parameters setting #####
+# Fastp
+qualified_quality_phred: 20     # The quality value that a base is qualified. A phred of 20 corresponds to a 1 in 100 error rate (Q20). This is the widely accepted standard for keeping high-quality Illumina data.
+unqualified_percent_limit: 40   # Allows a read to have up to 40% of its bases fall below the 20 threshold before the read itself gets discarded.
+length_required: 30             # Reads shorter than 30 bp after trimming are discarded.
+n_base_limit: 0                 # No 'N' in read. We set it to 0 because we want to do variant calling or identifying rare mutations. It ensures no ambiguous bases pass through.
+
+# Bwa-mem2
+min_score: 30                   # Minimum score to output, default: 30 (-T) 
+
+
+##### Software paths #####
+BIN: 
+    # FastQC v0.12.1
+    fastqc : "fastqc"
+    # Fastp v1.3.3
+    fastp: "fastp"
+    # BWA-MEM2 v2.3
+    bwa-mem2 : "bwa-mem2"
+    # Samblaster v0.1.26
+    samblaster : "samblaster"
+    # Samtools v1.23.1
+    samtools : "samtools"
+    # Bamtools v2.5.3
+    bamtools: "bamtools"
