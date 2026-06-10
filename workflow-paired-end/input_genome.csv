@@ -1,3 +1,8 @@
 scientific_name,assembly_accession,version,assembly_name,assembly_level,center_name,total_number_of_chromosomes,total_sequence_length,total_ungapped_length,number_of_contigs,contig_n50,contig_l50,number_of_scaffolds,scaffold_n50,scaffold_l50,number_of_component_sequences,atgc_count,gc_count,gc_percent,genome_coverage,number_of_organelles,gaps_between_scaffolds_count,replicon_count,scaffold_count,scaffold_n90,contig_count,EBP-flag
 Anodonta cygnea,GCA_980915975,2,xbAnoCygn1.pri.2,scaffold,University of Florence,,1608328603,1608325603,1039.0,3195509.0,154.0,1024.0,3253191.0,151.0,1024.0,1608325603,562802966,35.0,25,,,,,,,FALSE
+Bison bonasus,GCA_963879515,1,ETH_BisBon1,scaffold,ETH ZURICH,,3071717034,3071666736,248.0,91242619.0,13.0,210.0,104743180.0,13.0,210.0,3071666736,1331965561,43.5,42,,,,,,,FALSE
+Bos taurus,GCA_002263795,3,ARS-UCD1.3,chromosome,USDA ARS,,,,,,,,,,,,,,,,,,,,,FALSE
+Capra ibex,GCA_054642885,1,CapIbe1.0,chromosome,Istituto Italiano di Tecnologia,30.0,2660727766,2660701766,1167.0,58703036.0,14.0,1037.0,101249638.0,11.0,1037.0,2660701766,1124493314,42.5,44,1.0,,,,,,TRUE
 Erebia cassioides,GCA_976986335,1,ilEreCass2.1,chromosome,University of Neuchatel,11.0,546104319,546103119,23.0,45126064.0,5.0,11.0,55683060.0,5.0,11.0,546103119,201028166,37.0,30,1.0,,,,,,TRUE
+Gasterosteus aculeatus,GCA_964276395,1,fGasAcu3.hap1.1,chromosome,WELLCOME SANGER INSTITUTE,22.0,511138727,511072527,460.0,2544530.0,63.0,129.0,21933526.0,10.0,129.0,511072527,228521937,44.5,56,1.0,,,,,,TRUE
+Zymoseptoria tritici,GCA_017766645,1,ASM1776664v1,complete genome,University of Neuchatel,19.0,39154874,39154874,19.0,2810693.0,5.0,19.0,2810693.0,5.0,19.0,39154874,20428393,52.0,66,,,,,,,FALSE
