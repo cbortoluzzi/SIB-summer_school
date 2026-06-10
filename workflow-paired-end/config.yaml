@@ -1,6 +1,6 @@
 ##### Data inputs #####
 REFERENCE_GENOMES: "input_genome.csv"
-GENOMIC_DATA: "test.csv"
+GENOMIC_DATA: "input_data.csv"
 SPECIES_MATCH: "species_to_reference.csv"
 
 
