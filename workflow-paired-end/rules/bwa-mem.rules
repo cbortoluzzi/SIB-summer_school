@@ -7,7 +7,10 @@ def get_assembly(wildcards):
     scientific_name = REFORMAT_READS[wildcards.prefix]["scientific_name"]
     reference_species = MATCH[scientific_name]
     assembly = GENOME_BY_SPECIES[reference_species]
-    return f"genomes/{reference_species}/{assembly}.fasta"
+    if reference_species:
+        return f"genomes/{reference_species}/{assembly}.fasta"
+    else:
+        return f"genomes/{scientific_name}/{assembly}.fasta"
 
 
 
