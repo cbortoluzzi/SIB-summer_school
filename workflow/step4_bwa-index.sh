@@ -30,7 +30,6 @@ fi
 reference_genome=$1
 
 echo "Generating index for" $reference_genome
-# Generate index file of reference genome
 ../bin/bwa-mem2/bwa-mem2 index $reference_genome
 
 echo "Done!"
