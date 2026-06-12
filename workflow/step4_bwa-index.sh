@@ -17,7 +17,7 @@ then
     	echo -e "\nusage: `basename $0 ` <Reference genome in FASTA format>\n"
         echo -e "DESCRIPTION: This script generates the index file required for genome alignment in BWA-Mem2\n\n"
 
-        echo -e "INPUT:         <reference genome>       Reference genome in FASTA format (this is the masked reference genome)\n\n"
+        echo -e "INPUT:         <reference genome>       The masked reference genome in FASTA format\n\n"
 
         echo -e "OUTPUT:        <An indexed reference genome>\n\n"
 
