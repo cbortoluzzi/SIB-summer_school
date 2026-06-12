@@ -21,8 +21,8 @@ then
       echo -e "               <reference genome>                  The masked reference genome in FASTA format\n\n"
 
       echo -e "OUTPUT:        <A genome alignment in BAM format>\n\n"
-
-	    echo -e "REQUIRES:      Requires BWA-MEM2 (v2.3), samblaster (v0.1.26), sambamba (v1.0.1), samtools (v1.21), and bamtools (v2.5.2) available from PATH\n\n"
+	  
+	  echo -e "REQUIRES:      Requires BWA-MEM2 (v2.3), samblaster (v0.1.26), sambamba (v1.0.1), samtools (v1.21), and bamtools (v2.5.2) available from PATH\n\n"
 
       exit
 fi
