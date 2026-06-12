@@ -21,7 +21,7 @@ then
 
         echo -e "OUTPUT:        <An indexed reference genome>\n\n"
 
-        echo -e "REQUIRES:      Requires BWA (v0.7.19) available from PATH\n\n"
+        echo -e "REQUIRES:      Requires BWA-MEM2 (v2.3) available from PATH\n\n"
 
         exit
 fi
@@ -31,7 +31,7 @@ reference_genome=$1
 
 echo "Generating index for" $reference_genome
 # Generate index file of reference genome
-/work/PRTNR/SIB/ENVBIO/rwaterho/biomine/summer_school_2026/bin/bwa-mem2/bwa-mem2 index $reference_genome
+../bin/bwa-mem2/bwa-mem2 index $reference_genome
 
 echo "Done!"
 
