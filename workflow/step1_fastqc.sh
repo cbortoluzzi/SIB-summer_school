@@ -41,5 +41,4 @@ output=$(echo $filename | sed 's/_R1.fastq.gz//g' | sed 's/.R1.fastq.gz//g' | se
 
 echo "Running FASTQC for" $fastq_1 $fastq_2
 fastqc $fastq_1 $fastq_2 -o $dirname -t 16 -dir /tmp/
-
 echo "Done!"
