@@ -16,16 +16,13 @@ The ``wgs_runs_biodiversity_summer_school_target_species.csv`` file contains inf
 
 The species included in this dataset are:
 1. Anodonta anatina
-2. Anodonta cygnea
-3. Anodonta exulcerata
+2. Anodonta exulcerata
+3. Bison bonasus
 4. Bos taurus
-5. Bison bonasus
-6. Capra ibex
+5. Capra ibex
+6. Erebia cassioides
 7. Gasterosteus aculeatus
-8. Zymoseptoria tritici
-9. Erebia cassioides
-10. Tyto alba
-
-For all species, but _Bison bonasus_, we selected 15 individuals with the highest read count. Selected individuals belong to the same BioProject and were produced using the same instrument model, instrument platform, and library strategy. 
+8. Tyto alba
+9. Zymoseptoria tritici
 
 The **genome_assemblies_biodiversity_summer_school.csv** file contains information about the reference genome to be used for each species. For each reference genome, we specify its quality (scaffold, chromosome) and whether the assembly is the one of the target species. For instance, for _Anodonta anatina_ the reference genome to be used is the one of _Anodonta cygnea_, which is a sister species. 
