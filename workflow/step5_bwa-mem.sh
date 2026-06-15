@@ -59,4 +59,9 @@ samtools index -@ 32 $output/$prefix.trim.aln.sort.bam
 # Generate alignment statistics with bamtools
 bamtools stats -in $output/$prefix.trim.aln.sort.bam > $output/$prefix.trim.aln.sort.stats
 
+
+# Remove intermediate files
+rm $output/$prefix.trim.aln.bam
+
+
 echo -e "Done!"
