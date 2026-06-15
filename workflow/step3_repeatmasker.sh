@@ -34,6 +34,5 @@ species=$2
 # Mask reference genome
 echo "Running RepeatMasker on" $species
 ../bin/RepeatMasker/RepeatMasker -e rmblast -pa 16 -s -species "$species" -a -xsmall -gff $reference_genome
-
 echo "Done!"
 
