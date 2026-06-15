@@ -40,5 +40,4 @@ output=$(echo $filename | sed 's/_R1.fastq.gz//g' | sed 's/.R1.fastq.gz//g' | se
 
 echo "Running FASTP for" $fastq_1 $fastq_2
 fastp -i $fastq_1 -I $fastq_2 -o $dirname/$output\_1.trim.fastq.gz -O $dirname/$output\_2.trim.fastq.gz --detect_adapter_for_pe -q 20 -u 40 -l 30 -n 0  -g -t 16 -h $dirname/$output.fastp.html -j $dirname/$output.fastp.json
-
 echo "Done!"
