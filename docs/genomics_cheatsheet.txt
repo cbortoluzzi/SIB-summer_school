@@ -105,7 +105,7 @@ What it does:
 - Marks duplicate reads during alignment
 
 Command (in pipe):
-bwa mem ... | samblaster -M
+samblaster -M -i input.bam
 
 Notes:
 - Faster than separate duplicate marking step
