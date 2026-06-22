@@ -1,0 +1,293 @@
+# GENOMICS PIPELINE COOKBOOK
+
+==================================================
+FASTQ QUALITY CONTROL
+==================================================
+
+## FastQC
+
+What it does:
+- Assess quality of raw sequencing reads (FASTQ) right after receiving sequencing data
+
+Why it matters:
+- Detects issues early (low quality bases, adapters, biases)
+
+Useful command:
+fastqc reads_1.fastq.gz reads_2.fastq.gz -t 4 -o output_dir
+
+Useful options:
+- -t : number of threads
+- -o : output directory
+
+Key outputs to look at:
+- Per base quality
+- Adapter content
+- GC content
+
+--------------------------------------------------
+
+## fastp
+
+What it does:
+- Cleans FASTQ files (trimming, filtering, adapter removal)
+
+Why it matters:
+- Improves alignment and variant calling quality
+
+Useful command:
+fastp -i R1.fastq.gz -I R2.fastq.gz \
+      -o clean_R1.fastq -O clean_R2.fastq \
+      -q 20 -u 40 -l 10 \
+      -h report.html -j report.json
+
+Key options:
+- -q : minimum base quality
+- -u : max % of low-quality bases
+- -l : minimum read length
+- -h : HTML report
+
+
+==================================================
+REFERENCE PREPARATION
+==================================================
+
+## bwa-mem2 index
+
+What it does:
+- Indexes reference genome for alignment
+
+Command:
+bwa-mem2 index reference.fa
+
+Notes:
+- Required before running bwa-mem2 mem
+
+
+--------------------------------------------------
+
+## samtools faidx
+
+What it does:
+- Creates index for reference genome
+
+Command:
+samtools faidx reference.fa
+
+Notes:
+- Allows fast random access to reference
+
+
+==================================================
+ALIGNMENT
+==================================================
+
+## Burrows-Wheeler Aligner (bwa)
+
+What it does:
+- Aligns reads to a reference genome
+
+Useful command:
+bwa-mem2 -t 4 -M -T 30 \
+  -R "@RG\tID:sample1" \
+  reference.fa R1.fastq R2.fastq
+
+Key options:
+- -t : threads
+- -M : mark secondary alignments (GATK compatibility)
+- -T : minimum alignment score
+- -R : read group (IMPORTANT for GATK)
+
+--------------------------------------------------
+
+## samblaster
+
+What it does:
+- Marks duplicate reads during alignment
+
+Command (in pipe):
+bwa mem ... | samblaster -M
+
+Notes:
+- Faster than separate duplicate marking step
+
+--------------------------------------------------
+
+## samtools
+
+What it does:
+- Manipulates SAM/BAM files
+
+Core commands:
+
+Convert SAM to BAM:
+samtools view -Sb input.sam > output.bam
+
+Sort BAM:
+samtools sort -o sorted.bam input.bam
+
+Index BAM:
+samtools index sorted.bam
+
+Key options:
+- -@ : threads
+
+--------------------------------------------------
+
+## bamtools / samtools stats
+
+What it does:
+- Provides alignment statistics
+
+Commands:
+bamtools stats -in file.bam
+samtools stats file.bam
+
+Useful metrics:
+- coverage
+- mapping quality
+- duplication rate
+
+Notes:
+- Useful for QC after alignment
+
+
+==================================================
+VARIANT CALLING (GATK)
+==================================================
+
+## GATK HaplotypeCaller
+
+What it does:
+- Calls variants per sample (GVCF mode)
+
+Command:
+gatk HaplotypeCaller \
+  -R reference.fa \
+  -I sample.bam \
+  -O sample.g.vcf.gz \
+  -ERC GVCF
+
+Key options:
+- -ERC GVCF : output GVCF format
+- --minimum-mapping-quality : filter poor alignments
+- -T regions : specify a genomic region (format <chr> or <chr:start-stop> ) where the calling should happen
+
+Notes:
+- Produces per-sample variant likelihoods in gvcf format
+
+
+--------------------------------------------------
+
+## GATK CombineGVCFs
+
+What it does:
+- Merges multiple GVCFs into one
+
+Command:
+gatk CombineGVCFs \
+  -R reference.fa \
+  --variant list.txt \
+  -O combined.g.vcf.gz
+
+Key options:
+- --variant : a list 
+
+Notes:
+- Prepares data for joint genotyping
+
+
+--------------------------------------------------
+
+## GATK GenotypeGVCFs
+
+What it does:
+- Performs joint genotyping across samples
+
+Command:
+gatk GenotypeGVCFs \
+  -R reference.fa \
+  -V combined.g.vcf.gz \
+  -O cohort.vcf.gz
+
+Notes:
+- Produces final VCF
+
+
+==================================================
+VCF MANIPULATION
+==================================================
+
+## bcftools
+
+What it does:
+- Core tool for VCF processing and filtering
+
+Basic commands:
+
+Count variants:
+bcftools view -H file.vcf.gz | wc -l
+
+Count samples:
+bcftools query -l file.vcf.gz | wc -l
+
+Summary stats:
+bcftools stats file.vcf.gz
+
+Filtering:
+bcftools filter -e 'QUAL<30' input.vcf.gz -Oz -o output.vcf.gz
+
+Subset variants:
+bcftools view -m2 -M2 -v snps input.vcf.gz
+
+Key options:
+- -e : exclude if condition is true
+- -i : include if condition is true
+- -Oz : compressed output
+
+Notes:
+- Main tool for VCF manipulation
+
+
+--------------------------------------------------
+
+## vcftools
+
+What it does:
+- Provides population genetic filters and summaries
+
+Commands:
+
+Missing data:
+vcftools --gzvcf input.vcf.gz --max-missing 0.8
+
+Minor allele count:
+vcftools --gzvcf input.vcf.gz --mac 3
+
+Hardy-Weinberg:
+vcftools --gzvcf input.vcf.gz --hwe 1e-6
+
+Individual missingness:
+vcftools --gzvcf input.vcf.gz --missing-indv
+
+Notes:
+- Focus on population-level filtering
+
+
+--------------------------------------------------
+
+## plink
+
+What it does:
+- Population genetics analysis, especially LD
+
+Command (LD pruning):
+plink --vcf input.vcf.gz --indep-pairwise 50 5 0.2 --out pruned
+
+Meaning:
+- 50 SNP window
+- step size 5
+- r² threshold 0.2
+
+Notes:
+- Removes correlated variants
+

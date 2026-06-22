@@ -1,0 +1,53 @@
+# BASH COOKBOOK
+
+wget URL                      # download file from internet
+
+sed 's/old/new/g' file       # replace text in file
+grep "pattern" file          # search text in file
+
+head file                    # show first lines
+tail file                    # show last lines
+less file                    # scroll file
+
+gunzip file.gz               # decompress file
+gzip file                    # compress file
+
+ls                           # list files
+cd dir                       # change directory
+pwd                          # show current directory
+
+cp src dest                  # copy file
+mv src dest                  # move/rename file
+rm file                      # remove file
+mkdir dir                    # create directory
+
+nano file                    # edit file
+
+bash script.sh               # run script
+chmod +x script.sh           # make script executable
+./script.sh                  # run executable script
+
+screen                       # start session
+screen -r                    # resume session
+screen -ls                   # list sessions
+exit                         # exit session
+CMD + A + D                  # detach from session
+CMD + D                      # terminate session
+
+command1 | command2          # pipe commands
+
+wc -l file                   # count lines
+wc -w file                   # count words
+
+command &                    # run in background
+jobs                         # list jobs
+kill JOB_ID                  # stop job
+
+command > file               # write output to file
+command >> file              # append output
+command 2> error.log         # write errors
+
+grep -r "pattern" dir        # search in directory
+
+zcat file.gz                 # view compressed file
+zless file.gz                # scroll compressed file
