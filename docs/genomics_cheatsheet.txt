@@ -77,6 +77,17 @@ Notes:
 - Allows fast random access to reference
 
 
+--------------------------------------------------
+
+## GATK create dictionary 
+
+What it does:
+- Creates index for reference genome before hapltoypecaller
+
+Command:
+gatk CreateSequenceDictionary -R reference.fa
+
+
 ==================================================
 ALIGNMENT
 ==================================================
@@ -87,8 +98,8 @@ What it does:
 - Aligns reads to a reference genome
 
 Useful command:
-bwa-mem2 mem -t 4 -M -T 30 \
-  -R "@RG\tID:sample1" \
+bwa-mem2 -t 4 -M -T 30 \
+  -R "@RG\tID:sample1\tSM:sample1\tLB:sample1\tPL:ILLUMINA\tPU:sample1" \
   reference.fa R1.fastq R2.fastq
 
 Key options:
@@ -105,7 +116,7 @@ What it does:
 - Marks duplicate reads during alignment
 
 Command (in pipe):
-samblaster -M -i input.bam
+bwa mem ... | samblaster -M
 
 Notes:
 - Faster than separate duplicate marking step
