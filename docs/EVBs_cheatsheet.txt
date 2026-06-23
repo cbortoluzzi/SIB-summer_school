@@ -1,0 +1,228 @@
+# GENOMIC EBVs – R CHEAT SHEET
+
+==================================================
+PACKAGES
+==================================================
+
+library(SNPRelate)   # fast SNP processing (GDS format)
+library(vcfR)        # read VCF in R
+library(hierfstat)   # diversity & differentiation stats
+library(dartR)       # Ne & LD-based analyses
+
+
+==================================================
+DATA PREPARATION & LOADING
+==================================================
+
+## VCF → GDS (required for SNPRelate)
+
+snpgdsVCF2GDS("input.vcf.gz", "output.gds")
+
+Notes:
+- Input: filtered VCF (biallelic SNPs strongly recommended)
+- Output: GDS (fast, memory-efficient format)
+- Used for: heterozygosity, inbreeding, PCA, relatedness
+
+
+--------------------------------------------------
+
+## Load GDS
+
+DATA = snpgdsOpen("file.gds")
+
+sample_ids = read.gdsn(index.gdsn(DATA, "sample.id"))
+gen_mat = snpgdsGetGeno("file.gds")
+
+Notes:
+- Genotypes encoded as:
+  0 = homozygous REF
+  1 = heterozygous
+  2 = homozygous ALT
+- Rows = SNPs
+- Columns = individuals
+
+
+--------------------------------------------------
+
+## Load VCF (dartR workflow)
+
+vcf = gl.read.vcf("data.vcf")
+
+Notes:
+- Used for dartR analyses (e.g. Ne)
+- Internally converted to “genlight” format
+
+
+==================================================
+GENETIC DIVERSITY
+==================================================
+
+## Heterozygosity (per individual)
+
+rowSums(gen_mat == 1, na.rm = TRUE) / nrow(gen_mat)
+
+What it is:
+- Proportion of heterozygous sites per individual
+
+Input:
+- genotype matrix (SNPRelate)
+
+Interpretation:
+- High → high genetic diversity
+- Low → potential inbreeding or low variation
+
+
+--------------------------------------------------
+
+## Nucleotide diversity (π)
+
+pi.dosage(gen_mat, L = genome_size)
+
+What it is:
+- Average genetic difference between two individuals
+
+Input:
+- genotype matrix
+- genome size (number of callable bases)
+
+Interpretation:
+- Low π → individuals genetically similar
+- High π → individuals genetically different
+
+Simple idea:
+- π = probability that two individuals differ at a random site
+
+
+==================================================
+GENETIC DIFFERENTIATION
+==================================================
+
+## FST (population differentiation)
+
+FS = fs.dosage(dos = gen_mat, pop = Pop)
+FS$Fst2x2
+
+What it is:
+- Genetic differentiation between populations
+
+Input:
+- genotype matrix
+- population labels (vector: Pop)
+
+Interpretation:
+- ~0 → populations genetically similar
+- ~1 → populations completely different
+
+
+--------------------------------------------------
+
+## PCA (visualisation of structure)
+
+PCA = snpgdsPCA(DATA, autosome.only = FALSE, maf = 0.01)
+
+plot(PCA$eigenvect[,1], PCA$eigenvect[,2], pch = 20)
+
+What it shows:
+- Major axes of genetic variation
+
+Input:
+- GDS file
+
+Interpretation:
+- Clusters = genetic groups / populations
+- Separation = differentiation
+
+
+==================================================
+INBREEDING & RELATEDNESS
+==================================================
+
+## Individual inbreeding coefficient (F)
+
+inbreeding = snpgdsIndInb(DATA, autosome.only = FALSE, maf = 0.01)
+
+boxplot(inbreeding$inbreeding)           # overall
+boxplot(inbreeding$inbreeding ~ Pop)     # per population
+
+What it is:
+- Deviation from expected heterozygosity
+
+Input:
+- GDS file
+
+Interpretation:
+- F > 0 → excess homozygosity (inbreeding)
+- F < 0 → excess heterozygosity
+
+
+--------------------------------------------------
+
+## Genomic relatedness (Beta matrix)
+
+Beta_Mat = snpgdsIndivBeta(DATA, autosome.only = FALSE, maf = 0.01)
+
+image(Beta_Mat$beta)                    # heatmap
+diag(Beta_Mat$beta)                     # self-relatedness
+
+plot(inbreeding$inbreeding, diag(Beta_Mat$beta))
+
+What it is:
+- Pairwise genetic similarity between individuals
+
+Input:
+- GDS file
+
+Interpretation:
+- High values → closely related individuals
+- Blocks/clusters → population structure
+
+
+==================================================
+EFFECTIVE POPULATION SIZE (Ne)
+==================================================
+
+## LD-based Ne
+
+# Subsample loci (recommended for speed)
+vcf_sub = vcf[, sort(sample(1:nLoc(vcf), 10000))]
+
+Ne = gl.LDNe(vcf_sub, neest.path = "path_to_NeEstimator")
+
+What it is:
+- Effective population size estimated from linkage disequilibrium
+
+Input:
+- VCF / genlight object
+
+Interpretation:
+- Small Ne → strong genetic drift, small population
+- Large Ne → stable, large effective population
+
+
+==================================================
+PIPELINE SUMMARY
+==================================================
+
+INPUT:
+- filtered VCF (biallelic, QC-ed)
+
+FORMATS:
+- VCF → GDS (SNPRelate)
+- VCF → genlight (dartR)
+
+OUTPUT METRICS:
+
+Diversity:
+- heterozygosity
+- nucleotide diversity (π)
+
+Differentiation:
+- FST
+- PCA
+
+Inbreeding:
+- F
+- relatedness matrix
+
+Demography:
+- Ne
