@@ -98,7 +98,7 @@ What it does:
 - Aligns reads to a reference genome
 
 Useful command:
-bwa-mem2 -t 4 -M -T 30 \
+bwa-mem2 mem -t 4 -M -T 30 \
   -R "@RG\tID:sample1\tSM:sample1\tLB:sample1\tPL:ILLUMINA\tPU:sample1" \
   reference.fa R1.fastq R2.fastq
 
