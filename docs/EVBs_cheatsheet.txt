@@ -38,8 +38,8 @@ Notes:
   0 = homozygous REF
   1 = heterozygous
   2 = homozygous ALT
-- Rows = SNPs
-- Columns = individuals
+- Columns = SNPs
+- Rows = individuals
 
 
 --------------------------------------------------
