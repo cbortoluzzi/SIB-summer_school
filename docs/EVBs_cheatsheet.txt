@@ -59,7 +59,7 @@ GENETIC DIVERSITY
 
 ## Heterozygosity (per individual)
 
-rowSums(gen_mat == 1, na.rm = TRUE) / ncol(gen_mat)
+rowSums(gen_mat == 1, na.rm = TRUE) / rowSums(! is.na(gen_mat))
 
 What it is:
 - Proportion of heterozygous sites per individual
