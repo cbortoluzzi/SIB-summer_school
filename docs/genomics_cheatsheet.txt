@@ -280,6 +280,9 @@ vcftools --gzvcf input.vcf.gz --hwe 1e-6
 Individual missingness:
 vcftools --gzvcf input.vcf.gz --missing-indv
 
+Filter individual:
+vcftools --gzvcf input.vcf.gz --keep Ind2keep.txt --recode --recode-INFO-all --out output
+
 Notes:
 - Focus on population-level filtering
 
