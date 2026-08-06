@@ -3,7 +3,7 @@
 We here provide the set of scripts to run the different steps involved in a population genomic workflow. 
 
 ### Step 1:
-The raw sequencing data in FASTQ format are quality checked with [`FastQC`][https://www.bioinformatics.babraham.ac.uk/projects/fastqc].
+The raw sequencing data in FASTQ format are quality checked with [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc).
 
 ### Step 2:
 Raw sequencing data are trimmed with FastP ([https://github.com/opengene/fastp]). 
