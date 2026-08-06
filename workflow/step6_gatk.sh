@@ -36,5 +36,5 @@ reference_genome=$2
 output=$(echo $bam | sed 's/.bam//g')
 
 echo "Runing GATK for" $bam
-gatk HaplotypeCaller -I $bam -O $output.g.vcf.gz -R $reference_genome -ERC GVCF -mbq 20 --minimum-mapping-quality 30
+gatk HaplotypeCaller -I $bam -O $output.g.vcf.gz -R $reference_genome -ERC GVCF -mbq 20 --minimum-mapping-quality 30 --sample-ploidy 2
 echo "Done!"
