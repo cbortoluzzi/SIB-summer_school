@@ -45,7 +45,7 @@ output=$(dirname $fastq_1)
 
 
 # Run alignment using bwa-mem2 and mark duplicates with samblaster
-../bin/bwa-mem2/bwa-mem2 mem -R "@RG\\tID:$prefix\\tPL:ILLUMINA\\tSM:$ID" -M -T 30 -t 32 $reference_genome $fastq_1 $fastq_2 | samblaster -M | samtools view -Sb -@ 32 > $output/$prefix.trim.aln.bam
+bwa-mem2 mem -R "@RG\\tID:$prefix\\tPL:ILLUMINA\\tSM:$ID" -M -T 30 -t 32 $reference_genome $fastq_1 $fastq_2 | samblaster -M | samtools view -Sb -@ 32 > $output/$prefix.trim.aln.bam
 
 
 # Sort coordinates with sambamba (we go with sambamba because it's faster than samtools
@@ -62,6 +62,5 @@ bamtools stats -in $output/$prefix.trim.aln.sort.bam > $output/$prefix.trim.aln.
 
 # Remove intermediate files
 rm $output/$prefix.trim.aln.bam
-
 
 echo -e "Done!"
