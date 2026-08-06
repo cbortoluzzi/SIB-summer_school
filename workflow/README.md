@@ -21,4 +21,4 @@ The raw sequencing data are mapped to the reference genome with [bwa-mem2](https
 Variants are called on an individual and population-basis using [GATK](https://gatk.broadinstitute.org/hc/en-us).
 
 ### Step 8:
-The following population genomic parameters are estimated: 
+The following population genomic parameters are estimated: genetic diversity, heterozygosity, population structure, genetic differentiation, inbreeding, runs of homozygosity, and effective population size. 
