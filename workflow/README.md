@@ -19,3 +19,6 @@ The raw sequencing data are mapped to the reference genome with [bwa-mem2](https
 
 ### Step 6 - 7:
 Variants are called on an individual and population-basis using [GATK](https://gatk.broadinstitute.org/hc/en-us).
+
+### Step 8:
+The following population genomic parameters are estimated: 
