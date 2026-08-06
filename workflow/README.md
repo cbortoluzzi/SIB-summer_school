@@ -6,7 +6,7 @@ We here provide the set of scripts to run the different steps involved in a popu
 The raw sequencing data in FASTQ format are quality checked with [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc).
 
 ### Step 2:
-Raw sequencing data are trimmed with [FastP](https://github.com/opengene/fastp). 
+The raw sequencing data are trimmed with [FastP](https://github.com/opengene/fastp). 
 
 ### Step 3:
 The reference genome is masked either with [RepeatMasker](https://www.repeatmasker.org/) (if the species is in the database) or via a combination of RepeatModeler and RepeatMasker. 
