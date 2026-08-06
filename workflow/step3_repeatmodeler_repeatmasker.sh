@@ -36,12 +36,12 @@ species=$2
 
 echo "Running RepeatModeler on" $species
 # Build Database
-../bin/RepeatModeler-2.0.9/BuildDatabase -name "$species" $reference_genome
+BuildDatabase -name "$species" $reference_genome
 
 # Generate species-specific repeat library
-../bin/RepeatModeler-2.0.9/RepeatModeler -database $species -threads 20
+RepeatModeler -database $species -threads 20
 
 # Mask reference genome
-../bin/RepeatMasker/RepeatMasker -lib $species-families.fa -s -a -xsmall -gff $reference_genome
+RepeatMasker -lib $species-families.fa -s -a -xsmall -gff $reference_genome
 
 echo "Done!"
