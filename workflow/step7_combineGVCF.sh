@@ -31,16 +31,13 @@ module load tabix
 
 reference_genome=$1
 
-
-gvcf=$(for f in ../reads/Zymoseptoria_*/WGS/*/*.g.vcf.gz; do echo -n "--variant $f "; done)
+# Example run for Bison bonasus and Bison bison
+gvcf=$(for f in ../reads/Bison_*/WGS/*/*.g.vcf.gz; do echo -n "--variant $f "; done)
 
 # Merge several HaplotypeCaller GVCF files into a single GVCF with appropriate annotations
 gatk CombineGVCFs -R $reference_genome $gvcf -O cohort.g.vcf.gz
 
 # Perform joint genotyping on one or more samples pre-called with HaplotypeCaller
 gatk GenotypeGVCFs -R $reference_genome -stand-call-conf 30 -V cohort.g.vcf.gz -O variants_gatk_all.vcf.gz
-
-# Index VCF
-tabix -p vcf variants_gatk_all.vcf.gz
 
 echo -e "Done!"
