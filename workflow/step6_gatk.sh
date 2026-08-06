@@ -37,6 +37,4 @@ output=$(echo $bam | sed 's/.bam//g')
 
 echo "Runing GATK for" $bam
 gatk HaplotypeCaller -I $bam -O $output.g.vcf.gz -R $reference_genome -ERC GVCF -mbq 20 --minimum-mapping-quality 30
-tabix -p vcf $output.g.vcf.gz
-
 echo "Done!"
